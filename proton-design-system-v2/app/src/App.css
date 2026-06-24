@@ -1,0 +1,36 @@
+/* App-specific styles for Proton Design System */
+
+/* Smooth transitions for theme changes */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Remove transition from these elements for performance */
+svg, path, rect, circle, line {
+  transition: none;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--proton-accent);
+  color: var(--proton-accent-fg);
+}
+
+/* Focus visible styling */
+:focus-visible {
+  outline: 2px solid var(--proton-accent);
+  outline-offset: 2px;
+}
+
+/* Code block styling */
+pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--proton-border) transparent;
+}
+
+/* Table styling */
+table {
+  border-collapse: collapse;
+}
