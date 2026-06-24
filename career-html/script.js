@@ -1,9 +1,27 @@
+const setMenuState = (button, menu, isOpen) => {
+  menu.classList.toggle("open", isOpen);
+  document.body.classList.toggle("nav-open", isOpen);
+  button.setAttribute("aria-expanded", String(isOpen));
+};
+
 document.querySelectorAll("[data-nav-toggle]").forEach((button) => {
+  const menu = document.querySelector("[data-nav-menu]");
+  if (!menu) return;
+
   button.addEventListener("click", () => {
+    setMenuState(button, menu, !menu.classList.contains("open"));
+  });
+
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenuState(button, menu, false));
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  document.querySelectorAll("[data-nav-toggle]").forEach((button) => {
     const menu = document.querySelector("[data-nav-menu]");
-    if (!menu) return;
-    const isOpen = menu.classList.toggle("open");
-    button.setAttribute("aria-expanded", String(isOpen));
+    if (menu?.classList.contains("open")) setMenuState(button, menu, false);
   });
 });
 
@@ -35,11 +53,66 @@ if (filterForm) {
   });
 }
 
+const departmentButtons = Array.from(document.querySelectorAll("[data-department-filter]"));
+if (departmentButtons.length) {
+  const cards = Array.from(document.querySelectorAll("[data-job-card]"));
+  const empty = document.querySelector("[data-job-empty]");
+
+  departmentButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const department = button.dataset.departmentFilter || "all";
+      departmentButtons.forEach((item) => item.classList.toggle("active", item === button));
+
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const matches = department === "all" || card.dataset.department === department;
+        card.hidden = !matches;
+        if (matches) visibleCount += 1;
+      });
+
+      if (empty) empty.hidden = visibleCount !== 0;
+    });
+  });
+}
+
 document.querySelectorAll("[data-file-input]").forEach((input) => {
   input.addEventListener("change", () => {
     const target = document.querySelector(`[data-file-name="${input.id}"]`);
     if (!target) return;
     target.textContent = input.files.length ? input.files[0].name : "No file selected";
+  });
+});
+
+document.querySelectorAll("[data-application-form]").forEach((form) => {
+  const status = form.querySelector("[data-form-status]");
+  const submit = form.querySelector("button[type='submit']");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!form.checkValidity()) {
+      status?.classList.add("is-error");
+      if (status) {
+        status.hidden = false;
+        status.textContent = "Please complete all required fields and upload an accepted resume file before submitting.";
+      }
+      form.reportValidity();
+      return;
+    }
+
+    status?.classList.remove("is-error");
+    if (status) {
+      status.hidden = false;
+      status.textContent = "Thank you. Your application details are ready for PROTON HR review.";
+    }
+
+    if (submit) {
+      submit.disabled = true;
+      submit.textContent = "Submitted";
+      window.setTimeout(() => {
+        submit.disabled = false;
+        submit.textContent = "Submit Application";
+      }, 1800);
+    }
   });
 });
 
