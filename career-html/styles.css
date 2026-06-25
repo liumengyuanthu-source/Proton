@@ -462,9 +462,10 @@ textarea {
 
 .award-card img {
   height: 197px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-  background: #202020;
+  background: #111111;
+  padding: 10px;
 }
 
 .award-card h3,

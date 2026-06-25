@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="394" viewBox="0 0 768 394" role="img" aria-labelledby="title desc">
+  <title id="title">GCA Graduates' Choice Award</title>
+  <desc id="desc">Most preferred graduate employer, voted by university students.</desc>
+  <rect width="768" height="394" fill="#242424"/>
+  <rect x="64" y="56" width="198" height="198" fill="none" stroke="#f7c52f" stroke-width="7"/>
+  <text x="91" y="108" fill="#f7c52f" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="800">GCA</text>
+  <text x="91" y="153" fill="#f7c52f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800">GRADUATES'</text>
+  <text x="91" y="193" fill="#f7c52f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800">CHOICE</text>
+  <text x="91" y="233" fill="#f7c52f" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800">AWARD</text>
+  <text x="318" y="126" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800">MOST PREFERRED</text>
+  <text x="318" y="174" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800">GRADUATE EMPLOYER</text>
+  <rect x="318" y="210" width="304" height="6" fill="#f7c52f"/>
+  <text x="318" y="262" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="800">100% VOTED BY</text>
+  <text x="318" y="292" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="800">UNIVERSITY STUDENTS</text>
+</svg>
