@@ -1506,6 +1506,19 @@ textarea.form-control {
   min-height: 190px;
 }
 
+.pyt-form .date-field {
+  align-self: start;
+  grid-template-rows: auto 54px;
+}
+
+.pyt-form .date-field .form-control {
+  align-self: start;
+}
+
+.pyt-form .date-field-with-note .form-note {
+  margin-top: -2px;
+}
+
 .internship-apply {
   background: var(--proton-grey-3);
 }
